@@ -1,24 +1,33 @@
 @import "tailwindcss";
 
+/* Luxury color palette for Aurum */
+:root {
+  --color-noir: #0A0A0A;
+  --color-charcoal: #1A1A1A;
+  --color-gold: #D4AF37;
+  --color-pearl: #FAFAFA;
+  --color-smoke: #8A8A8A;
+}
+
 @theme {
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
-  --color-background: oklch(1 0 0);
-  --color-foreground: oklch(0.145 0 0);
-  --color-card: oklch(1 0 0);
-  --color-card-foreground: oklch(0.145 0 0);
-  --color-primary: oklch(0.205 0 0);
-  --color-primary-foreground: oklch(0.985 0 0);
-  --color-secondary: oklch(0.97 0 0);
-  --color-secondary-foreground: oklch(0.205 0 0);
-  --color-muted: oklch(0.97 0 0);
-  --color-muted-foreground: oklch(0.556 0 0);
-  --color-accent: oklch(0.97 0 0);
-  --color-accent-foreground: oklch(0.205 0 0);
+  --font-sans: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Cormorant Garamond', serif;
+  --color-background: #0A0A0A;
+  --color-foreground: #FAFAFA;
+  --color-card: #1A1A1A;
+  --color-card-foreground: #FAFAFA;
+  --color-primary: #D4AF37;
+  --color-primary-foreground: #0A0A0A;
+  --color-secondary: #1A1A1A;
+  --color-secondary-foreground: #FAFAFA;
+  --color-muted: #1A1A1A;
+  --color-muted-foreground: #8A8A8A;
+  --color-accent: #D4AF37;
+  --color-accent-foreground: #0A0A0A;
   --color-destructive: oklch(0.577 0.245 27.325);
-  --color-border: oklch(0.922 0 0);
-  --color-input: oklch(0.922 0 0);
-  --color-ring: oklch(0.708 0 0);
+  --color-border: #1A1A1A;
+  --color-input: #1A1A1A;
+  --color-ring: #D4AF37;
   --radius: 0.5rem;
 }
 
@@ -29,5 +38,140 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+  }
+}
+
+/* Custom scrollbar for luxury feel */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0A0A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D4AF37;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B8941F;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 1s ease-out;
+}
+
+.gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    #D4AF37 0%,
+    #F4E4A0 50%,
+    #D4AF37 100%
+  );
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Video overlay styles */
+.video-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.7) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.video-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.6) 100%);
+  z-index: 2;
+}
+
+/* Luxury button styles */
+.luxury-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.luxury-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.luxury-button:hover::before {
+  left: 100%;
+}
+
+/* Product card hover effect */
+.product-card {
+  transition: all 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
+}
+
+/* Gallery masonry layout */
+.masonry-grid {
+  column-count: 3;
+  column-gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .masonry-grid {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .masonry-grid {
+    column-count: 1;
+  }
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 1rem;
 }

@@ -1,0 +1,17 @@
+API Error: The operation timed out.
+
+
+=== GIT STATUS ===
+ M app/globals.css
+ M app/layout.tsx
+?? .build-instructions.md
+?? CLAUDE_DEBUG.log
+?? public/
+
+=== FILES IN APP ===
+total 6
+drwxr-xr-x 1 builder builder  140 Aug 26 07:42 .
+drwxr-xr-x 1 builder builder  360 Aug 26 07:48 ..
+-rw-r--r-- 1 builder builder 3350 Aug 26 07:40 globals.css
+-rw-r--r-- 1 builder builder 1489 Aug 26 07:42 layout.tsx
+-rw-r--r-- 1 builder builder  199 Aug 26 07:26 page.tsx
